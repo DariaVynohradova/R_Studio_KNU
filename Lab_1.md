@@ -57,7 +57,7 @@ nodes
  [3] <row _id="3" _uuid="9042B410-5D83-4CD6-B573-916D54467720" _position="3" _address="http://data.baltimorecity.g ...
  [4] <row _id="4" _uuid="CDFAF444-3141-447F-B413-8EA8621F7432" _position="4" _address="http://data.baltimorecity.g ...
 ```
-##### find the record '_id_" and the number of variables under each record
+##### find the record '__id_' and the number of variables under each record
 ```
 records<-xml_attr(xml_children(nodes), '_id')
 records
