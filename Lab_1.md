@@ -7,7 +7,7 @@ download.file(url, destfile, mode='wb')
 
 library(readxl)
 head(read_excel('c:/rlabwd/coal_extraction_07_2020.xlsx', sheet=1, col_names=TRUE, col_types=NULL, skip=0), 6)
-```
+
 A tibble: 6 x 12
   month               company company_code mine  ministry_owned_~ region region_code mark  extraction_fact
   <dttm>              <chr>   <chr>        <chr>            <dbl> <chr>  <chr>       <chr>           <dbl>
@@ -17,7 +17,7 @@ A tibble: 6 x 12
 4 2020-07-01 00:00:00 "ДП Ми~ 32087941     "ВП ~                1 Донец~ 1400000000  ГЖП             43500
 5 2020-07-01 00:00:00 "ДП Ми~ 32087941     "ВП ~                1 Донец~ 1400000000  Г(Г2)             500
 6 2020-07-01 00:00:00 "ДП Се~ 33426253     "ВП ~                1 Донец~ 1400000000  ДГ               1440
-
+```
 
 ### Task 2. 
 ```
