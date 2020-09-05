@@ -40,13 +40,13 @@ length(which(df1$VAL==24))
 sum(df1$VAL==24 & !is.na(df1$VAL))
 [1] 53
 ```
-### Task 3. 
-##### Read hml file
+### Task 3. Read hml file
 ```
 library('xml2')
 df2 <- read_xml('http://d396qusza40orc.cloudfront.net/getdata%2Fdata%2Frestaurants.xml')
-
-#find all of the nodes/records
+```
+##### find all of the nodes/records
+```
 nodes<-xml_find_first(df2, ".//row")
 nodes
 
@@ -56,8 +56,9 @@ nodes
  [2] <row _id="2" _uuid="44F06325-01EF-4430-A292-1F7F0271D902" _position="2" _address="http://data.baltimorecity.g ...
  [3] <row _id="3" _uuid="9042B410-5D83-4CD6-B573-916D54467720" _position="3" _address="http://data.baltimorecity.g ...
  [4] <row _id="4" _uuid="CDFAF444-3141-447F-B413-8EA8621F7432" _position="4" _address="http://data.baltimorecity.g ...
-
-#find the record _id and the number of variables under each record
+```
+##### find the record '_id_" and the number of variables under each record
+```
 records<-xml_attr(xml_children(nodes), '_id')
 records
 
@@ -73,8 +74,9 @@ columns
  [56] 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
 [111] 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
 [166] 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
-
-#find the variable names and values
+```
+##### find the variable names and values
+```
 names<-xml_name(xml_children(xml_children(nodes)))
 names
 
@@ -90,8 +92,9 @@ vals
 [3] "Frankford"                                          "2"                                                 
 [5] "NORTHEASTERN"                                       ""                                                  
 [7] "1919"                                               "21231" 
-
-#create dataframe
+```
+##### create dataframe
+```
 df<-data.frame(n=rep(records, times=columns), 
                variable=names, values=vals)
 
@@ -103,8 +106,9 @@ head(df)
 4 1 councildistrict            2
 5 1  policedistrict NORTHEASTERN
 6 1      location_1             
-
-#zipcode 21231?
+```
+##### zipcode 21231?
+```
 nrow(subset(df, df$variable=='zipcode' & df$values=='21231'))
 
 [1] 127
