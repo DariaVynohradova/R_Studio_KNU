@@ -97,6 +97,6 @@ numSamples <- 1000000
 ```
 plot(myTime[0:numSamples], strain[0:numSamples], type = "l", xlab = "GPS Time (s)", ylab = "H1 Strain")
 ```
-![Screenshot](image_l2.png)
-Format: ![Alt Text](url)
+!(image_l2.png)
+
 
