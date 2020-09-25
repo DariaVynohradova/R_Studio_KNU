@@ -50,14 +50,14 @@ strain
 
 H5close()
 ```
-### 5. Read attributes from "strain/Strain" for Xspacing in variable st
+#### Task 5. Read attributes from "strain/Strain" for Xspacing in variable st
 ```
 st <- h5readAttributes(file="H-H1_LOSC_C00_4_V1-1187006834-4096.hdf5", name="strain/Strain")$Xspacing
 st
 
 [1] 0.0002441406
 ```
-### 6. Find start date of the event and its duration
+#### Task 6. Find start date of the event and its duration
 ```
 gpsStart <- h5read("H-H1_LOSC_C00_4_V1-1187006834-4096.hdf5", "meta/GPSstart")
 gpsStart
@@ -69,14 +69,14 @@ duration
 
 [1] 4096
 ```
-### 7. Find end date of the event
+#### Task 7. Find end date of the event
 ```
 gpsEnd <- gpsStart + duration
 gpsEnd
 
 [1] 1187010930
 ```
-### 8. Create a vector myTime with time values
+#### Task 8. Create a vector myTime with time values
 ```
 myTime <- seq(gpsStart, gpsEnd, st)
 myTime
@@ -89,11 +89,11 @@ myTime
   [41] 1187006834 1187006834 1187006834 1187006834 1187006834 1187006834 1187006834 1187006834
   [49] 1187006834 1187006834 1187006834 1187006834 1187006834 1187006834 1187006834 1187006834
 ```
-### 9. Build the graph for the first million of measures
+#### Task 9. Build the graph for the first million of measures
 ```
 numSamples <- 1000000
 ```
-### 10. Use a function for the graph
+#### Task 10. Use a function for the graph
 ```
 plot(myTime[0:numSamples], strain[0:numSamples], type = "l", xlab = "GPS Time (s)", ylab = "H1 Strain")
 ```
