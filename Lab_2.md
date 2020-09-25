@@ -1,11 +1,11 @@
-### Task 1. Install packages
+#### Task 1. Install packages
 ```
 install.packages("BiocManager")
 BiocManager::install("rhdf5")
 
 library("rhdf5")
 ```
-### Task 2-3. Download file to the work directory and output its content
+#### Task 2-3. Download file to the work directory and output its content
 ```
 setwd("c:/rlabwd")
 
@@ -34,7 +34,7 @@ h5ls("H-H1_LOSC_C00_4_V1-1187006834-4096.hdf5")
 19                   /          strain   H5I_GROUP                 
 20             /strain          Strain H5I_DATASET   FLOAT 16777216
 ```
-### 4. Read name Strain from group strain into variable strain
+#### Task 4. Read name Strain from group strain into variable strain
 ```
 strain <- h5read("H-H1_LOSC_C00_4_V1-1187006834-4096.hdf5", "strain/Strain")
 strain
@@ -49,5 +49,42 @@ strain
 
 H5close()
 ```
+### 5. Read attributes from "strain/Strain" for Xspacing in variable st
+```
+st <- h5readAttributes(file="H-H1_LOSC_C00_4_V1-1187006834-4096.hdf5", name="strain/Strain")$Xspacing
+st
+[1] 0.0002441406
+```
+### 6. Find start date of the event and its duration
+```
+gpsStart <- h5read("H-H1_LOSC_C00_4_V1-1187006834-4096.hdf5", "meta/GPSstart")
+gpsStart
+[1] 1187006834
+
+duration <- h5read("H-H1_LOSC_C00_4_V1-1187006834-4096.hdf5", "meta/Duration")
+duration
+[1] 4096
+```
+### 7. Find end date of the event
+```
+gpsEnd <- gpsStart + duration
+gpsEnd
+[1] 1187010930
+```
+### 8. Create a vector myTime with time values
+```
+myTime <- seq(gpsStart, gpsEnd, st)
+myTime
+```
+### 9. Build the graph for the first million of measures
+```
+numSamples <- 1000000
+```
+### 10. Use a function for the graph
+```
+plot(myTime[0:numSamples], strain[0:numSamples], type = "l", xlab = "GPS Time (s)", ylab = "H1 Strain")
+```
+
+
 
 
