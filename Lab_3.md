@@ -68,7 +68,7 @@ head(movies)
 
 ##### Output all the  movies with runtime more then 120 min
 ```
-movies[movies$Runtime <120, ]$Title
+movies[movies$Runtime < 120, ]$Title
 
 [1] "Нянька"                            
  [2] "Вбивство у Східному експресі"      
@@ -138,7 +138,7 @@ movies[movies$Runtime <120, ]$Title
 
 ##### Count the number of movies with runtime less then 100 min
 ```
-movies %>% subset(movies$Runtime < 100) %>% nrow()
+movies %>% subset(movies$Runtime < 100) %>% nrow
 
 [1] 13
 ```
