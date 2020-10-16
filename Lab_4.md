@@ -12,7 +12,7 @@ library(RSQLite)
 conn <- dbConnect(RSQLite::SQLite(), "c:\\rlabwd\\database.sqlite")
 ```
 
-##### 3. Select paper title of spotlight event type
+##### 3. Select paper titles of spotlight event type
 ```
 res1 <- dbSendQuery(conn, "SELECT Title, EventType 
                                   FROM Papers 
@@ -36,3 +36,70 @@ df1
 dbClearResult(res1)
 ```
 
+##### 4. Select Josh Tenenbaum' papers
+```
+res2 <- dbSendQuery(conn, "SELECT Name, Title 
+                                  FROM Authors as a inner join PaperAuthors as b on a.id=b.Authorid
+                                  inner join Papers as c on c.id=b.Paperid  
+                                  WHERE Name='Josh Tenenbaum'
+                                  ORDER BY Title")
+df2 <- dbFetch(res2, n=10)
+df2
+
+            Name                                                                                             Title
+1 Josh Tenenbaum                                                       Deep Convolutional Inverse Graphics Network
+2 Josh Tenenbaum Galileo: Perceiving Physical Object Properties by Integrating a Physics Engine with Deep Learning
+3 Josh Tenenbaum                                                Softstar: Heuristic-Guided Probabilistic Inference
+4 Josh Tenenbaum                                                        Unsupervised Learning by Program Synthesis
+
+dbClearResult(res2)
+```
+
+##### 5. Select all titles that contain "statistical"
+```
+res3 <- dbSendQuery(conn, "SELECT Title
+                                  FROM Papers 
+                                  WHERE Title LIKE '%statistical%' 
+                                  ORDER BY Title")
+df3 <- dbFetch(res3, n=10)
+df3
+
+                                                                                 Title
+1 Adaptive Primal-Dual Splitting Methods for Statistical Learning and Image Processing
+2                                Evaluating the statistical significance of biclusters
+3                  Fast Randomized Kernel Ridge Regression with Statistical Guarantees
+4     High Dimensional EM Algorithm: Statistical Optimization and Asymptotic Normality
+5                Non-convex Statistical Optimization for Sparse Tensor Graphical Model
+6            Regularized EM Algorithms: A Unified Framework and Statistical Guarantees
+7                            Statistical Model Criticism using Kernel Two Sample Tests
+8                         Statistical Topological Data Analysis - A Kernel Perspective
+
+dbClearResult(res3)
+```
+
+##### 6. Select auther names and number of their papers
+```
+res4 <- dbSendQuery(conn, "SELECT Name, count(Title) as NumPapers
+                                  FROM Authors as a inner join PaperAuthors as b on a.id=b.Authorid
+                                  inner join Papers as c on c.id=b.Paperid  
+                                  GROUP by 1
+                                  ORDER BY 2 desc")
+df4 <- dbFetch(res4, n=10)
+df4
+
+                   Name NumPapers
+1  Pradeep K. Ravikumar         7
+2        Lawrence Carin         6
+3               Han Liu         6
+4     Zoubin Ghahramani         5
+5               Le Song         5
+6   Inderjit S. Dhillon         5
+7          Zhaoran Wang         4
+8         Yoshua Bengio         4
+9  Simon Lacoste-Julien         4
+10          Shie Mannor         4
+
+dbClearResult(res4)
+
+dbDisconnect(conn)
+```
