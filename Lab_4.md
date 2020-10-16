@@ -77,7 +77,7 @@ df3
 dbClearResult(res3)
 ```
 
-##### 6. Select auther names and number of their papers
+##### 6. Select author names and number of their papers
 ```
 res4 <- dbSendQuery(conn, "SELECT Name, count(Title) as NumPapers
                                   FROM Authors as a inner join PaperAuthors as b on a.id=b.Authorid
