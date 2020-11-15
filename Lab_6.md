@@ -39,7 +39,7 @@ png("plot3.png", width=480, height=480)
 plot(sub_df$DateTime,sub_df$Sub_metering_1,ylab="Energy sub metering", xlab="", type="l", col="black")
 points(sub_df$DateTime,sub_df$Sub_metering_2, col="red", type="l")
 points(sub_df$DateTime,sub_df$Sub_metering_3, col="blue", type="l")
-legend("topright", lwd=1, col=c("black", "red", "blue"), legend=names(subdt[,7:9]))
+legend("topright", lwd=1, col=c("black", "red", "blue"), legend=names(sub_df[,7:9]))
 dev.off()
 ```
 ![Plot](https://github.com/DariaVynohradova/R_Studio_KNU/blob/master/plot3.png)
