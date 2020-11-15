@@ -21,6 +21,7 @@ hist(sub_df$Global_active_power, col="red", main="Global Active Power",
      xlab="Global Active Power (kilowatts)")
 dev.off()
 ```
+![Plot](https://github.com/DariaVynohradova/R_Studio_KNU/blob/master/plot1.png)
 
 ##### Graph 2 - time series
 ###### type - 1-character string giving the type of plot desired, "l" is line
@@ -30,6 +31,7 @@ plot(sub_df$DateTime,sub_df$Global_active_power, ylab="Global Active Power (kilo
      xlab="", type="l")
 dev.off()
 ```
+![Plot](https://github.com/DariaVynohradova/R_Studio_KNU/blob/master/plot2.png)
 
 ##### Graph 3
 ```
@@ -40,6 +42,7 @@ points(sub_df$DateTime,sub_df$Sub_metering_3, col="blue", type="l")
 legend("topright", lwd=1, col=c("black", "red", "blue"), legend=names(subdt[,7:9]))
 dev.off()
 ```
+![Plot](https://github.com/DariaVynohradova/R_Studio_KNU/blob/master/plot3.png)
 
 ##### Graph 4
 ```
@@ -67,3 +70,4 @@ plot(sub_df$DateTime, sub_df$Voltage, ylab="Voltage", xlab="datetime", type="l")
 plot(sub_df$DateTime, sub_df$Global_reactive_power, ylab="Global_reactive_power", xlab="datetime", type="l")
 dev.off()
 ```
+![Plot](https://github.com/DariaVynohradova/R_Studio_KNU/blob/master/plot4.png)
