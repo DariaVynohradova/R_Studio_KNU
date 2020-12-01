@@ -5,7 +5,7 @@ library(stringr)
 library(ggplot2)
 ```
 
-##### 1. Read rds file
+##### Read rds files
 ```
 nei <- readRDS("C:/rlabwd/summarySCC_PM25.rds")
 scc <- readRDS("C:/rlabwd/Source_Classification_Code.rds")
