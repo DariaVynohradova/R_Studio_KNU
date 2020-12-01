@@ -72,7 +72,7 @@ barplot((nei_motor_balti$Total), names.arg=nei_coal_year$year, col="blue",
         main="PM2.5 Motor Vehicle Sources in Baltimore")
 dev.off()
 ```
-
+![Plot](https://github.com/DariaVynohradova/R_Studio_KNU/blob/master/l7_p5.png)
 
 ##### Graph 6  - Motor vehicle sources in Baltimore and Los Angeles
 ```
@@ -87,4 +87,4 @@ ggplot(nei_motor_ba_la, aes(factor(year), Emissions, fill=factor(city))) +
   labs(title=expression("Vehicle Source Emissions in Baltimore and LA, 1999-2008"))
 dev.off()
 ```
-
+![Plot](https://github.com/DariaVynohradova/R_Studio_KNU/blob/master/l7_p6.png)
