@@ -20,6 +20,7 @@ barplot((nei_by_year$Total/10^3), names.arg=nei_by_year$year, col="blue",
         xlab="Year", ylab="PM2.5 Total Emissions, thousand tons")
 dev.off()
 ```
+![Plot](https://github.com/DariaVynohradova/R_Studio_KNU/blob/master/l7_p1.png)
 
 ##### Graph 2 - PM2.5 Total Emissions in Baltimore by year
 ```
@@ -30,6 +31,7 @@ barplot(nei_balti$Total, names.arg=nei_balti$year, col="red", xlab="Year",
         ylab="PM2.5 Total Emissions, tons", main="Total PM2.5 Emissions From All Baltimore City Sources")
 dev.off()
 ```
+![Plot](https://github.com/DariaVynohradova/R_Studio_KNU/blob/master/l7_p2.png)
 
 ##### Graph 3 - PM2.5 Total Emissions in Baltimore by year and type
 ```
@@ -42,6 +44,7 @@ ggplot(nei_balti_type, aes(factor(year), Total, fill=factor(type))) +
   labs(title=expression("PM2.5 Emissions in Baltimore City 1999-2008 by Source Type"))
 dev.off()
 ```
+![Plot](https://github.com/DariaVynohradova/R_Studio_KNU/blob/master/l7_p3.png)
 
 ##### Graph 4  - Coal combustion-related sources in the USA
 ```
@@ -55,6 +58,7 @@ barplot((nei_coal_year$Total/10^3), names.arg=nei_coal_year$year, col="blue",
         main="PM2.5 Coal Combustion-Related Sources in the USA")
 dev.off()
 ```
+![Plot](https://github.com/DariaVynohradova/R_Studio_KNU/blob/master/l7_p4.png)
 
 ##### Graph 5  - Motor vehicle sources in Baltimore
 ```
@@ -68,6 +72,7 @@ barplot((nei_motor_balti$Total), names.arg=nei_coal_year$year, col="blue",
         main="PM2.5 Motor Vehicle Sources in Baltimore")
 dev.off()
 ```
+![Plot](https://github.com/DariaVynohradova/R_Studio_KNU/blob/master/l7_p5.png)
 
 ##### Graph 6  - Motor vehicle sources in Baltimore and Los Angeles
 ```
@@ -82,3 +87,4 @@ ggplot(nei_motor_ba_la, aes(factor(year), Emissions, fill=factor(city))) +
   labs(title=expression("Vehicle Source Emissions in Baltimore and LA, 1999-2008"))
 dev.off()
 ```
+![Plot](https://github.com/DariaVynohradova/R_Studio_KNU/blob/master/l7_p6.png)
